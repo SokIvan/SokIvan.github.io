@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castle Clash Helper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1f1f2e;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .loader-container {
+            position: fixed;
+            top: 25%;
+            left: 0;
+            width: 100%;
+            height: 75%;
+            background-color: rgba(31, 31, 46, 0.7); /* Полупрозрачный фон */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 9999;
+        }
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #5CAF50;
+            width: 120px;
+            height: 120px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+
+
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .welcome-message {
+            font-size: 24px;
+            color: #fff;
+            text-align: center;
+            animation: fadeInOut 5s ease-in-out forwards;
+        }
+        @keyframes fadeInOut {
+            0%, 80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .main-content {
+            display: none;
+        }
+        body.show-content .main-content {
+            display: block;
+        }
+        body.show-content .loader-container {
+            display: none;
+        }
+        .main-image {
+            opacity: 0;
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 100%;
+            max-height: 25%;
+            z-index: 1000;
+            animation: fadeIn 5s ease-out forwards;
+
+        }
+        @keyframes fadeIn {
+            to { opacity: 20; }
+        }
+        .slide-in {
+            opacity: 0;
+            transform: translateX(100%);
+            animation: slideIn 1s ease-out forwards;
+        }
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        header {
+            background-color: #000000;
+        }
+        header img {
+            width: 1920px;
+        }
+        nav {
+            margin: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #45a049;
+        }
+        .content {
+            padding: 50px;
+        }
+        .donation-section {
+            background-color: #282828;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .donation-section h2 {
+            margin-bottom: 20px;
+        }
+        .donation-button {
+            background-color: #f44336;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .donation-button:hover {
+            background-color: #d32f2f;
+        }
+        footer {
+            background-color: #000000;
+            color: #fff;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Изображение, которое будет видно с самого начала -->
+    <img src="https://live.staticflickr.com/7112/26812729052_281bea1cc2_b.jpg" alt="Castle Clash Logo" class="main-image" width="100%" height="100%">
+
+    <div class="loader-container">
+        <div class="loader"></div>
+        <div class="welcome-message">Добро пожаловать на наш сайт!</div>
+    </div>
+
+    <div class="main-content">
+        <header class="slide-in">
+            <img src="https://live.staticflickr.com/7112/26812729052_281bea1cc2_b.jpg" alt="Castle Clash Logo" height="200">
+        </header>
+
+        <nav class="slide-in">
+            <a href="#pvp">PVP</a>
+            <a href="#bg">BG</a>
+            <a href="#dungeons">Dungeons</a>
+            <a href="#other">Other</a>
+        </nav>
+
+        <div class="content slide-in">
+            <h1>Welcome to Castle Clash Helper</h1>
+            <p>Your ultimate guide to mastering Castle Clash.</p>
+        </div>
+
+        <div class="donation-section slide-in">
+            <h2>Support the Helper</h2>
+            <p>If you find this helper useful, consider supporting us through donations.</p>
+            <button class="donation-button">Donate Now</button>
+        </div>
+
+        <footer class="slide-in">
+            &copy; 2024 Castle Clash Helper. All Rights Reserved.
+        </footer>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.body.classList.add('show-content');
+            }, 5000); // Задержка 5 секунд перед показом основного контента
+        });
+    </script>
+
+</body>
+</html>
